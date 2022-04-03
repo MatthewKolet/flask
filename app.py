@@ -4,16 +4,30 @@ from flask import render_template
 app = Flask(__name__)
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
 @app.route('/about')
 def about():
     return render_template('mike.html')
 
-@app.route('/estimate')
+@app.route('/estimate', method=["POST"])
 def estimate():
-    return render_template('mike.html')
+    if request.method == 'POST':
+        form = request.form
+        radius = form['radius']
+        height = form['height']
+        top_area = 3.14 * radius^2
+        sides_area = 2(3.14(radius*height))
+        total_area = top_area + sides_area
+        total_sqft = total_area / 144
+        material_cost = 25 
+        total_material_cost = total_sqft * material_cost
+        labor_cost = 15
+        total_labor_cost = labor_cost * total_sqft
+        total_cost_estimate = total_material_cost + total_labor_cost
+        return redirect(url_for('index'))
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
