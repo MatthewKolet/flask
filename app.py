@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', pageTitle= "Home")
 
 @app.route('/about')
 def about():
-    return render_template('mike.html')
+    return render_template('mike.html', pageTitle="About")
 
-@app.route('/estimate', method=["POST"])
+@app.route('/estimate', methods=['GET', 'POST'])
 def estimate():
     if request.method == 'POST':
         form = request.form
