@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block body %}
 
 <h2>Cost Estimate</h2>
+<hr/>
 <p>Calculate the cost of your estimate.</p>
 <form action="/estimate" method="POST">
 
@@ -15,5 +16,5 @@
 </form>
 <br/>
 <h3>Estimate</h3>
-<p>{{estimate}}</p>
+<p>{{quote}}</p>
 {% endblock %}

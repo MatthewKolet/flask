@@ -28,8 +28,9 @@ def estimate():
         labor_cost = 15
         total_labor_cost = labor_cost * total_sqft
         total_cost_estimate = total_material_cost + total_labor_cost
+        total_cost_estimate = round(total_cost_estimate, 2)
         total_cost_estimate = str(total_cost_estimate)
-        return(total_cost_estimate)
+        return(render_template('estimate.html', quote=total_cost_estimate))
     return(render_template('estimate.html', pageTitle="Estimate")) 
 
 if __name__ == '__main__':

@@ -7,18 +7,24 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 </head>
 <body>
+    <header>
+        <h1>Vertical Tank Maintenance</h1>
 
-    <h1>Vertical Tank Maintenance</h1>
-
-    <p>
-        <a href="http://127.0.0.1:5000">Home</a>
-        <a href="http://127.0.0.1:5000/about">About</a>
-        <a href="http://127.0.0.1:5000/estimate">Estimate</a>
-    </p>
+        <p>
+            <a href="http://127.0.0.1:5000">Home</a>
+            <a href="http://127.0.0.1:5000/about">About</a>
+            <a href="http://127.0.0.1:5000/estimate">Estimate</a>
+        </p>
+    </header>
     <hr/>
+    <br/>
         {% block body %}
 
         {% endblock %}
-
+    <br/>
+    <footer>
+         <p>@VTM 2020</p>
+    </footer>
 </body>
+
 </html>
