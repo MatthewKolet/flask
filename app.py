@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, request, url_for
 from flask import render_template
 
 app = Flask(__name__)
@@ -17,8 +17,10 @@ def estimate():
         form = request.form
         radius = form['radius']
         height = form['height']
-        top_area = 3.14 * radius^2
-        sides_area = 2(3.14(radius*height))
+        radius = float(radius)
+        height = float(height)
+        top_area = 3.14 * radius**2
+        sides_area = 2*3.14*radius*height
         total_area = top_area + sides_area
         total_sqft = total_area / 144
         material_cost = 25 
@@ -26,8 +28,9 @@ def estimate():
         labor_cost = 15
         total_labor_cost = labor_cost * total_sqft
         total_cost_estimate = total_material_cost + total_labor_cost
-        return redirect(url_for('index'))
-    return redirect(url_for('index'))
+        total_cost_estimate = str(total_cost_estimate)
+        return(total_cost_estimate)
+    return(render_template('estimate.html', pageTitle="Estimate")) 
 
 if __name__ == '__main__':
     app.run(debug=True)

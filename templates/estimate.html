@@ -1,18 +1,19 @@
 {% extends 'base.html' %} {% block body %}
 
-<h1>Cost Estimate</h1>
-<hr/>
+<h2>Cost Estimate</h2>
 <p>Calculate the cost of your estimate.</p>
 <form action="/estimate" method="POST">
 
     <label for="radius">Radius</label>
-    <input type="text" id="radius" name="radius" />
+    <input type="number" id="radius" name="radius" />
     <br />
     <label for="height">Height</label>
-    <input type="text" id="height" name="height" />
+    <input type="number" id="height" name="height" />
     <br />
-    <input type="submit" id="submit" value="submit" />
+    <input type="submit" id="submit" value="Submit" />
 
 </form>
-
+<br/>
+<h3>Estimate</h3>
+<p>{{estimate}}</p>
 {% endblock %}
