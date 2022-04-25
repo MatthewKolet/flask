@@ -1,5 +1,4 @@
-name: test-package-deploy #MWC
-on:
+name: test-package-deploy #Matt
   push:
     branches: [main]
   pull_request:
